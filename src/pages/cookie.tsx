@@ -41,7 +41,7 @@ function Cookie(){
 
     
     useEffect(() => {
-        if(cookieCount % 10 == 0){
+        if(cookieCount % 10 == 0 && cookieCount > 9){
             var userParams = {
                 method: 'POST',
                 headers: {
