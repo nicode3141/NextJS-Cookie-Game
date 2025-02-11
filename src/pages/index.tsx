@@ -1,6 +1,5 @@
-import Image from "next/image";
+import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
-import Home from "./home";
 import Cookie from "./cookie";
 
 const geistSans = Geist({
@@ -16,6 +15,10 @@ const geistMono = Geist_Mono({
 export default function Index() {
   return (
     <>
+      <Head>
+        <title>Cookie Game</title>
+        <meta name="description" content="Simple cookie clicker clone" />
+      </Head>
       <Cookie></Cookie>
     </>
   );
