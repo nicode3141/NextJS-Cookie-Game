@@ -7,7 +7,7 @@ Simple Cookie Clicker clone with authentication
 - PostgreSQL
 - NextJS
 
-## Start Sevver
+## Start Server
 ```bash
 npm init
 npm run dev
