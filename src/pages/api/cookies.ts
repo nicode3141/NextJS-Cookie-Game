@@ -1,4 +1,5 @@
-"use server"
+"use server";
+
 import { NextApiRequest, NextApiResponse } from "next"
 import { eq } from "drizzle-orm"
 import { db } from "@/db/index"
