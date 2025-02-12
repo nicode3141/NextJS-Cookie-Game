@@ -23,13 +23,6 @@ function connect(){
         return drizzle({ client: sql });
     }
 
-    
-<<<<<<< HEAD
 }
-
-
-=======
-const sql = neon(process.env.DATABASE_URL!);
->>>>>>> ff0b8af7b75ae1e6412a6a1d668f35b68e09885a
 
 export const db = connect();
