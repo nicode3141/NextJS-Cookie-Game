@@ -1,9 +1,31 @@
-import { config } from 'dotenv'
+"use server";
+
+import * as dotenv from 'dotenv';
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 
-config({ path: ".env" });
-    
-const sql = neon("postgresql://neondb_owner:npg_nW4SQZ2KIjrk@ep-restless-tooth-a2vdnw4y-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require");
+dotenv.config({
+    path: '.env',
+});
 
-export const db = drizzle(sql);
+
+
+const databaseUrl = process.env.DATABASE_URL;
+
+
+function connect(){
+    if(databaseUrl == undefined){
+        console.log(databaseUrl);
+       throw new Error('Database url is required');
+    } else{
+        const sql = neon(databaseUrl);
+
+        return drizzle({ client: sql });
+    }
+
+    
+}
+
+
+
+export const db = connect();

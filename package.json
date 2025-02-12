@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "@next/env": "^15.1.7",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.39.3",
     "framer-motion": "^12.4.1",
-    "next": "15.1.6",
+    "next": "^15.1.7",
     "next-auth": "^4.24.11",
     "pg": "^8.13.2",
     "react": "^19.0.0",

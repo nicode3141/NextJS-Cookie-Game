@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { Montserrat, Inter } from "next/font/google";
 import { useState, useEffect } from 'react';
-import { getCookieCount } from "./api/cookies";
 
 const montserratFont = Montserrat({
     weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -26,17 +25,12 @@ function Cookie(){
         setCookieCount((prev) => prev + 1);
     }
 
-    async function fetchCookies(){
-        const cookieCount = await getCookieCount()
-        return cookieCount;
-    }
-
     useEffect(() => {
         fetch("/api/cookies")
             .then((res) => res.json())
             .then((data) => setCookieCount(data.cookies));
 
-        console.log(fetchCookies());
+        
     }, []);
 
     
