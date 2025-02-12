@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Montserrat, Inter } from "next/font/google";
 import { useState, useEffect } from 'react';
+import cookiePicture from '../../public/cookie.png'
 
 const montserratFont = Montserrat({
     weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -58,7 +60,7 @@ function Cookie(){
                 <motion.div initial={{ opacity: 0, scale: 0.5 }} 
               animate={{ opacity: 1, scale: 1 }} transition={{  type: 'spring', duration: 0.2, bounce: .1 }} whileTap={{ scale: 1.2 }}>
                     <button onClick={() => handleClick()}>
-                        <img src="https://images.cdn.us-central1.gcp.commercetools.com/4e5a974e-1287-4368-811f-41d06eb6c548/Chocolate%20Chip%20Silo%20-t71xMOs7.png" height={500} width={500}></img>
+                        <Image src={cookiePicture} alt="cookie" height={500} width={500}></Image>
                     </button>
                 </motion.div>
                 <div className="font-semibold text-center text-amber-700 text-2xl">{cookieCount + " Cookies"}</div>
