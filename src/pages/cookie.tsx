@@ -54,7 +54,7 @@ function Cookie(){
     }, [cookieCount, ]);
 
     return(
-        <div className={`flex items-center justify-center p-5 flex-col bg-slate-100 h-screen ${interFont.className}`}>
+        <div className={`flex items-center justify-center p-5 flex-col bg-slate-100 h-screen max-w-full min-h-full overflow-hidden ${interFont.className}`}>
             <div className="font-bold text-center text-4xl pt-10">Cookie Game</div>
             <div className="">
                 <motion.div initial={{ opacity: 0, scale: 0.5 }} 
