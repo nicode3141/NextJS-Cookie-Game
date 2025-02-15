@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import Cookie from "./cookie";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
