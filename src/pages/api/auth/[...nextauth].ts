@@ -1,9 +1,10 @@
-import NextAuth from "next-auth";
+import { JWT } from "next-auth/jwt";
+import NextAuth, { Account, NextAuthOptions, Profile } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import AppleProvider from "next-auth/providers/apple";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -29,7 +30,26 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!
     })
-  ]
-}
+  ],
+  callbacks: {
+    async jwt({ token, account, profile } : {token: JWT, account: Account | null, profile?: any}) {
+      // Persist the OAuth access_token and or the user id to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
+        token.id = profile?.id;
+      }
+      return token
+    },
+    async session({ session, token }: {session: any, token: any}) {
+      if(token.sub){
+        session.user.id = token.sub;
+        session.user.name = token.name;
+      }
+    return session;
+    }
+  },
+  session: { strategy: "jwt" },
+  secret: process.env.SECRET,
+};
 
 export default NextAuth(authOptions);

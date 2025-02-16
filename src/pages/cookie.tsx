@@ -25,7 +25,7 @@ const interFont = Inter({
 function LogInAlert({}) {
     const { data: session } = useSession();
     return session? (
-        <HeaderAlert variant={"success"}>You're viewing the <span className="font-semibold">Full Version</span> of Cookie Clicker!
+        <HeaderAlert variant={"success"}>Hi <span className="font-semibold">@{session?.user?.name}</span>!
         Here you can <span className="font-semibold text-blue-500"><LogInBtn />
             </span> to Exit!
         </HeaderAlert>

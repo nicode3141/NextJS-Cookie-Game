@@ -6,3 +6,7 @@ export const users = pgTable("users", {
     username: varchar("username"),
     cookies: integer("cookies")
 })
+
+export const cookies = pgTable("cookies", {
+    
+});
